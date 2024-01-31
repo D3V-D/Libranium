@@ -7,11 +7,21 @@
 	background-repeat: no-repeat;
   	background-attachment: fixed;
   	background-size: cover;
+
 }
 
 .title {
+
 	color: white;
 	font-family: 'Inter', sans-serif;
 	font-size: 14rem;
 	font-weight: 400;
+}
+
+.button {
+	z-index: 100;
+	font-size: 6rem;
+	background-color: black;
+	color: white;
+	font-family: 'Inter', sans-serif;
 }
