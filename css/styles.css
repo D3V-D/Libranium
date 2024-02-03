@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montaga&display=swap');
 
 * {
 	padding: 0;
@@ -9,6 +9,13 @@
 
 body, html {
 	overflow: hidden;
+}
+
+body {
+	background-image: url("../public/homebg.png");
+	background-size: cover;
+	height: 100vh;
+	font-family: 'Montaga', serif;
 }
 
 main {
@@ -21,18 +28,19 @@ main {
 }
 
 .title {
-	color: rgba(0, 0, 0 ,0.7);
+	color: rgba(255, 255, 255, 0.9);
 	font-size: 4rem;
 	font-weight: 700;
 }
 
 .button {
 	font-size: 1.2rem;
-	padding: 5px;
+	padding: 0.5rem;
 	background-color: rgba(0, 0, 0, 0.753);
 	color: rgba(255, 255, 255, 0.911);
 	border-radius: 2px;
 	cursor: pointer;
+	margin-top: -1rem;
 }
 
 .Ltitle {
@@ -42,6 +50,10 @@ main {
 }
 
 .search {
+	background-image: url("../public/quill.svg");
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: 7px;
 	font-weight: 400;
 	color: white;
 	position: absolute;
@@ -50,54 +62,19 @@ main {
 	margin: 15px;
 	background-color: transparent;
 	color: rgba(0,0,0,0.8);
+	background-color: rgba(255, 255, 255, 0.596);
 	padding: 10px;
+	padding-left: 32px;
 	width: 200px;
 	border-radius: 5px;
 	border: solid 1px rgba(0, 0, 0, 0.753);
-	transition: 0.1s ease;
+	transition: 0.1s color ease, 0.1s background-color ease;
 }
 
 .search:focus {
 	font-weight: 600;
-	outline: solid 2px rgba(255, 162, 118, 0.9);
+	outline: solid 2px rgba(43, 235, 91, 0.9);
 	color: rgba(0,0,0);
+	background-color: white;
 }
 
-body::before,
-body::after {
-	position: absolute;
-	left: 0;
-	top: 0;
-	content: '';
-	width: 100vw;
-	height: 100vh;
-	z-index: -1;
-}
-
-body::before {
-	background-image: url('../public/homebg.png');
-	background-repeat: no-repeat;
-  	background-attachment: fixed;
-  	background-size: cover;
-}
-
-
-body {
-	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-	background-size: 400% 400%;
-	animation: gradient 15s ease infinite;
-	height: 100vh;
-	font-family: 'Inter', sans-serif;
-}
-
-@keyframes gradient {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
