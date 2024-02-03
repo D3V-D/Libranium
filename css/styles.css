@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap');
 
 * {
 	padding: 0;
@@ -20,7 +21,7 @@ main {
 }
 
 .title {
-	color: rgba(255, 255, 255, 0.9);
+	color: rgba(0, 0, 0 ,0.7);
 	font-size: 4rem;
 	font-weight: 700;
 }
@@ -34,6 +35,12 @@ main {
 	cursor: pointer;
 }
 
+.Ltitle {
+	font-family: 'Qwitcher Grypen', cursive;
+	font-size: 16rem;
+	margin-right: -65px;
+}
+
 .search {
 	font-weight: 400;
 	color: white;
@@ -41,7 +48,7 @@ main {
 	top: 0;
 	left: 0;
 	margin: 15px;
-	background-color: white;
+	background-color: transparent;
 	color: rgba(0,0,0,0.8);
 	padding: 10px;
 	width: 200px;
@@ -68,16 +75,18 @@ body::after {
 }
 
 body::before {
-	background: #8c8c8c;
-	opacity: 40%;
-	filter: url(#noiseFilter);
+	background-image: url('../public/homebg.png');
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	background-size: cover;
 }
 
+
 body {
-	position: relative;
-	background-image: linear-gradient(45deg, #0edf54, #0fb180, rgb(10, 98, 114), rgb(5, 88, 109));
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
+	height: 100vh;
 	font-family: 'Inter', sans-serif;
 }
 
