@@ -41,9 +41,9 @@ main {
 	border-radius: 2px;
 	cursor: pointer;
 	margin-top: -1rem;
-	border: solid 3px black;
+	border: solid 3px rgba(0, 0, 0, 0.753);
 	border-radius: 6px;
-		transition: 0.1s ease-in;
+	transition: 0.1s ease-in;
 
 }
 
