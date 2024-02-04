@@ -59,7 +59,8 @@ main {
 	position: absolute;
 	top: 0;
 	left: 0;
-	margin: 15px;
+	margin-top: 40px;
+	margin-left: 20px;
 	background-color: transparent;
 	color: rgba(0,0,0,0.8);
 	background-color: rgba(255, 255, 255, 0.596);
@@ -77,10 +78,6 @@ main {
 	color: rgba(0,0,0);
 	background-color: white;
 }
-
-
-
-
 
 a
 {
@@ -126,9 +123,7 @@ a:hover
   -webkit-touch-callout: none;
 }
 
-/*
- * Just a quick hamburger
- */
+
 #menuToggle span
 {
   display: block;
@@ -136,7 +131,6 @@ a:hover
   height: 4px;
   margin-bottom: 5px;
   position: relative;
-  
   background: #cdcdcd;
   border-radius: 3px;
   
@@ -159,10 +153,6 @@ a:hover
   transform-origin: 0% 100%;
 }
 
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
 #menuToggle input:checked ~ span
 {
   opacity: 1;
@@ -170,28 +160,18 @@ a:hover
   background: #232323;
 }
 
-/*
- * But let's hide the middle one.
- */
 #menuToggle input:checked ~ span:nth-last-child(3)
 {
   opacity: 0;
   transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-/*
- * Ohyeah and the last one should go the other direction
- */
 #menuToggle input:checked ~ span:nth-last-child(2)
 {
   opacity: 1;
   transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
 #menu
 {
   position: absolute;
@@ -215,11 +195,7 @@ a:hover
   padding: 10px 0;
   font-size: 22px;
 }
-
-/*
- * And let's fade it in from the left
- */
-#menuToggle input:checked ~ ul
+oggle input:checked ~ ul
 {
   transform: none;
   opacity: 1;
