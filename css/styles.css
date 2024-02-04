@@ -1,13 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montaga&display=swap');
 
+:root {
+	--title-size: clamp(4rem, 10vw, 7rem);
+}
+
+
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
 
-body, html {
+body,
+html {
 	overflow: hidden;
 }
 
@@ -29,7 +35,7 @@ main {
 
 .title {
 	color: rgba(255, 255, 255, 0.9);
-	font-size: 4rem;
+	font-size: var(--title-size);
 	font-weight: 700;
 }
 
@@ -40,13 +46,13 @@ main {
 	color: rgba(255, 255, 255, 0.911);
 	border-radius: 2px;
 	cursor: pointer;
-	margin-top: -1rem;
+	margin-top: calc(var(--title-size) * -0.5);
 }
 
 .Ltitle {
 	font-family: 'Qwitcher Grypen', cursive;
-	font-size: 16rem;
-	margin-right: -65px;
+	font-size: calc(var(--title-size) * 4);
+	margin-right: calc(-1 * var(--title-size));
 }
 
 .search {
@@ -61,7 +67,7 @@ main {
 	left: 0;
 	margin: 15px;
 	background-color: transparent;
-	color: rgba(0,0,0,0.8);
+	color: rgba(0, 0, 0, 0.8);
 	background-color: rgba(255, 255, 255, 0.596);
 	padding: 10px;
 	padding-left: 32px;
@@ -74,163 +80,108 @@ main {
 .search:focus {
 	font-weight: 600;
 	outline: solid 2px rgba(43, 235, 91, 0.9);
-	color: rgba(0,0,0);
+	color: rgba(0, 0, 0);
 	background-color: white;
 }
 
+#menuToggle {
+	position: absolute;
+	top: 30px;
+	right: 30px;
+	width: fit-content;
+	z-index: 1;
+	-webkit-user-select: none;
+	user-select: none;
+}
 
-
-
-
-a
-{
-	font-family: 'Montaga', serif;
+#menuToggle a {
 	text-decoration: none;
-  color: #232323;
-  
-  transition: color 0.3s ease;
+	color: #232323;
 }
 
-a:hover
-{
-  color: green;
+#menuToggle a:hover {
+	color: tomato;
 }
 
-#menuToggle
-{
-  display: block;
-  position: absolute;
-  top: 50px;
-  right: 50px;
-  
-  z-index: 1;
-  
-  -webkit-user-select: none;
-  user-select: none;
+#menuToggle input {
+	display: block;
+	width: 40px;
+	height: 32px;
+	position: absolute;
+	top: -7px;
+	left: -5px;
+	cursor: pointer;
+	opacity: 0;
+	z-index: 2;
+	-webkit-touch-callout: none;
 }
 
-#menuToggle input
-{
-  display: block;
-  width: 40px;
-  height: 32px;
-  position: absolute;
-  top: -7px;
-  left: -5px;
-  
-  cursor: pointer;
-  
-  opacity: 0; /* hide this */
-  z-index: 2; /* and place it over the hamburger */
-  
-  -webkit-touch-callout: none;
+#menuToggle span {
+	display: block;
+	width: 33px;
+	height: 4px;
+	margin-bottom: 5px;
+	position: relative;
+	background: rgba(255, 255, 255, 0.9);
+	border-radius: 3px;
+	z-index: 1;
+	transform-origin: 4px 0px;
+	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+		background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0),
+		opacity 0.55s ease;
 }
 
-/*
- * Just a quick hamburger
- */
-#menuToggle span
-{
-  display: block;
-  width: 33px;
-  height: 4px;
-  margin-bottom: 5px;
-  position: relative;
-  
-  background: #cdcdcd;
-  border-radius: 3px;
-  
-  z-index: 1;
-  
-  transform-origin: 4px 0px;
-  
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
-              opacity 0.55s ease;
+#menuToggle span:first-child {
+	transform-origin: 0% 0%;
 }
 
-#menuToggle span:first-child
-{
-  transform-origin: 0% 0%;
+#menuToggle span:nth-last-child(2) {
+	transform-origin: 0% 100%;
 }
 
-#menuToggle span:nth-last-child(2)
-{
-  transform-origin: 0% 100%;
+#menuToggle input:checked~span {
+	opacity: 1;
+	transform: rotate(45deg) translate(-2px, -1px);
+	background: rgba(0, 0, 0, 0.8);
 }
 
-/* 
- * Transform all the slices of hamburger
- * into a crossmark.
- */
-#menuToggle input:checked ~ span
-{
-  opacity: 1;
-  transform: rotate(45deg) translate(-2px, -1px);
-  background: #232323;
+#menuToggle input:checked~span:nth-last-child(3) {
+	opacity: 0;
+	transform: rotate(0deg) scale(0.2, 0.2);
 }
 
-/*
- * But let's hide the middle one.
- */
-#menuToggle input:checked ~ span:nth-last-child(3)
-{
-  opacity: 0;
-  transform: rotate(0deg) scale(0.2, 0.2);
+#menuToggle input:checked~span:nth-last-child(2) {
+	transform: rotate(-45deg) translate(0, -1px);
 }
 
-/*
- * Ohyeah and the last one should go the other direction
- */
-#menuToggle input:checked ~ span:nth-last-child(2)
-{
-  opacity: 1;
-  transform: rotate(-45deg) translate(0, -1px);
+#menu {
+	position: absolute;
+	height: 100vh;
+	width: clamp(300px, 30vw, 400px);
+	top: -110%;
+	right: -200%;
+	padding: 40px;
+	padding-top: 125px;
+	background: rgba(255, 255, 255, 0.2);
+	border-left: solid 1px rgba(0, 0, 0, 0.4);
+	backdrop-filter: blur(10px);
+	list-style-type: none;
+	-webkit-font-smoothing: antialiased;
+	transform-origin: 0% 0%;
+	transform: translate(100%, 0);
+	transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
 }
 
-/*
- * Make this absolute positioned
- * at the top left of the screen
- */
-#menu
-{
-  position: absolute;
-  width: 300px;
-  height: calc(100vh + 30px);
-  margin: -100px 0 0 0;
-  padding: 50px;
-  padding-top: 125px;
-  right: -100px;
-  background: #ededed;
-  list-style-type: none;
-  -webkit-font-smoothing: antialiased;
-  /* to stop flickering of text in safari */
-  transform-origin: 0% 0%;
-  transform: translate(100%, 0);
-  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+#menu li {
+	padding: 5px 0;
+	font-size: 22px;
 }
 
-#menu li
-{
-  padding: 10px 0;
-  font-size: 22px;
+#menu li:hover {
+	color:rgba(2, 90, 148, 0.9);
+	text-decoration: underline;
 }
 
-/*
- * And let's fade it in from the left
- */
-#menuToggle input:checked ~ ul
-{
-  transform: none;
-  opacity: 1;
+#menuToggle input:checked~ul {
+	transform: none;
 }
-
-@media screen and (max-width: 768px) {
-  #menu {
-    transform: none;
-    opacity: 0;
-
-    transition: opacity 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
-  }
-}
-
