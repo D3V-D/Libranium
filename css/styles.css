@@ -84,10 +84,7 @@ main {
 }
 
 .search:focus {
-	font-weight: 600;
-	outline: solid 2px rgba(43, 235, 91, 0.9);
-	color: rgba(0, 0, 0);
-	background-color: white;
+	outline: none;
 }
 
 #menuToggle {
