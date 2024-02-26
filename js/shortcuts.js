@@ -57,6 +57,15 @@ const hotkeys = [
                 }
             }
         ]
+    },
+    {
+        id: "Theme",
+        title: "Change Theme",
+        hotkey: "cmd+d",
+        mdIcon: "dark_mode",
+        handler: () => {
+            window.location.href = "/"
+        }
     }
 ];
 const ninja = document.querySelector("ninja-keys");
