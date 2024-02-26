@@ -30,7 +30,27 @@ const hotkeys = [
                 id: "ByDesc",
                 title: "Generate by Description",
                 hotkey: "cmd+d",
+                mdIcon: "topic",
+                keywords: "text, description, words, custom",
+                handler: () => {
+                    console.log("TODO")
+                }
+            },
+            {
+                id: "ByTopic",
+                title: "Generate by Topics",
+                hotkey: "cmd+o",
                 mdIcon: "description",
+                keywords: "text, description, words, custom",
+                handler: () => {
+                    console.log("TODO")
+                }
+            },
+            {
+                id: "ByLP",
+                title: "Generate by Lesson Plan",
+                hotkey: "cmd+l",
+                mdIcon: "school",
                 keywords: "text, description, words, custom",
                 handler: () => {
                     console.log("TODO")
