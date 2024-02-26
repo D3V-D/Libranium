@@ -39,7 +39,7 @@ textarea {
   min-height: 6px;
   min-width: 0;
   outline: none;
-  padding: 16px 24px;
+  padding: 12px 12px;
   text-align: center;
   text-decoration: none;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
