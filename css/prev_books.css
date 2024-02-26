@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montaga&display=swap');
+
+html, body {
+  overflow: hidden;
+}
+
+body {
+  font-family: 'Montaga', serif !important;
+  background: var(--bg-color);
+  color: var(--fg-color);
+}
+
 .textdiv {
   flex-direction: column;
   width: 100vw;
@@ -5,33 +17,40 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: ;
 }
 
 textarea {
-  width: 50%;
-  height: 150px;
-  padding: 12px 20px;
+  width: 70%;
+  height: 200px;
+  padding: 12px 12px;
   box-sizing: border-box;
-  border: 2px solid #ccc;
+  border: 1px solid #00000052;
   border-radius: 4px;
-  background-color: #f8f8f8;
+  background-color: var(--muted-bg);
   font-size: 16px;
+  font-family: inherit;
   resize: none;
   margin-bottom: 10px;
+  transition: 0.1s ease;
+}
+
+textarea:focus {
+  outline: none;
+  border: solid 1px #046197cc;
 }
 
 
 .button {
+  position: relative;
+  background-color: white;
   appearance: none;
-  background-color: transparent;
   border: 2px solid #1A1A1A;
+  font-family: inherit;
   border-radius: 15px;
   box-sizing: border-box;
   color: #3B3B3B;
   cursor: pointer;
   display: inline-block;
-  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
   font-size: 16px;
   font-weight: 600;
   line-height: normal;
@@ -46,8 +65,6 @@ textarea {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: 5%%;
-  will-change: transform;
 }
 
 .button:disabled {
@@ -59,6 +76,8 @@ textarea {
   background-color: #1A1A1A;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
+  border-radius: 0;
+  border-image: url("../public/homebg.png") 100;
 }
 
 .button:active {
