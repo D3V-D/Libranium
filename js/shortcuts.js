@@ -1,5 +1,7 @@
 import ninjaKeys from 'https://cdn.jsdelivr.net/npm/ninja-keys@1.2.2/+esm'
 
+const searchbar = document.getElementById("fake-search")
+
 const hotkeys = [
     {
         id: "Home",
@@ -61,3 +63,8 @@ const hotkeys = [
 ];
 const ninja = document.querySelector("ninja-keys");
 ninja.data = hotkeys;
+
+searchbar.addEventListener("click", () => {
+    console.log("hi")
+    ninja.open()
+})
