@@ -12,6 +12,16 @@ const hotkeys = [
             window.location.href = "/"
         }
     },
+
+    {
+        id: "Theme",
+        title: "Change Theme",
+        hotkey: "cmd+d",
+        mdIcon: "dark_mode",
+        handler: () => {
+            window.location.href = "/"
+        }
+    },
     {
         id: "Generate",
         title: "Generate book recommendations...",
