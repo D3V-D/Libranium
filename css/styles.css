@@ -188,3 +188,8 @@ main {
 #menuToggle input:checked~ul {
 	transform: none;
 }
+
+.main-title-logo {
+	width: clamp(300px, 80vw, 1000px);
+	filter: invert(100%);
+}

@@ -45,7 +45,7 @@ const hotkeys = [
                 mdIcon: "topic",
                 keywords: "text, description, words, custom",
                 handler: () => {
-                    console.log("TODO")
+                    window.location.href = "/description"
                 }
             },
             {
@@ -55,7 +55,7 @@ const hotkeys = [
                 mdIcon: "description",
                 keywords: "text, description, words, custom",
                 handler: () => {
-                    console.log("TODO")
+                    window.location.href = "/topics"
                 }
             },
             {
@@ -65,7 +65,7 @@ const hotkeys = [
                 mdIcon: "school",
                 keywords: "text, description, words, custom",
                 handler: () => {
-                    console.log("TODO")
+                    window.location.href = "/LP"
                 }
             }
         ]
