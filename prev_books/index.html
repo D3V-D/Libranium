@@ -14,25 +14,20 @@
       rel="stylesheet"
     />
   </head>
-
-  <body>
-
-    
-<h2>Autocomplete</h2>
-
-<p>Start typing:</p>
-
-<form autocomplete="off" action="/action_page.php">
-  <div class="autocomplete" style="width:300px;">
-    <input id="myInput" type="text" name="myCountry" placeholder="Prev Book">
-  </div>
-  <input type="submit">
-</form>
-
-
-    <ninja-keys />
-
-    <script type="module" src="../js/prev_books.js"></script>
-    <script type="module" src="../js/shortcuts.js"></script>
-  </body>
+    <body>
+      <div class="textdiv">
+        <div class="book-input-container"> 
+          <input id="bookinput" placeholder="Type your book name here...">
+          <div id="book-autocomplete">
+          </div>
+        </div>
+        <button class="button" role="button">Generate</button>
+      </div>
+  
+      <ninja-keys />
+  
+  
+      <script type="module" src="../js/shortcuts.js"></script>
+      <script src="../js/prev_books.js"></script>
+    </body>
 </html>
