@@ -35,6 +35,12 @@ function fillAutocomplete(completions) {
     const image = completion.volumeInfo.imageLinks && completion.volumeInfo.imageLinks.thumbnail
     const isbn10 = completion.volumeInfo.industryIdentifiers && completion.volumeInfo.industryIdentifiers[0].identifier
 
+    // first check that isbn is not already in read list
+    const readList = document.getElementById("current-books-list")
+    if (readList.querySelector(`[data-isbn="${isbn10}"]`)) {
+      continue
+    }
+
     const completionElement = document.createElement("div")
     completionElement.classList.add("book-completion")
     completionElement.dataset.isbn = isbn10
@@ -66,7 +72,41 @@ function fillAutocomplete(completions) {
     completionElement.append(completionImage, completionInfo)
 
     autocompleteBox.append(completionElement)
+
+    completionButton.addEventListener("click", () => {
+      const bookList = document.getElementById("current-books-list")
+
+      // change completion button text and function
+      completionButton.innerText = "Remove"
+      completionButton.classList.add("remove-button")
+      completionButton.addEventListener("click", () => {
+        completionElement.remove()
+      })
+
+      // add rating input
+      const ratingInputContainer = document.createElement("div")
+      ratingInputContainer.classList.add("rating-input-container")
+
+      const ratingLabel = document.createElement("label")
+      ratingLabel.classList.add("rating-label")
+      ratingLabel.innerText = "Rate out of 10: "
+
+      const ratingInput = document.createElement("input")
+      ratingInput.classList.add("rating-input")
+      ratingInput.type = "number"
+      ratingInput.min = 0
+      ratingInput.max = 10
+      ratingInput.step = 1
+      ratingInput.value = 0
+
+      ratingInputContainer.append(ratingLabel, ratingInput)
+
+      completionInfo.append(ratingInputContainer)
+
+      bookList.append(completionElement)
+    })
   }
 
-  autocompleteBox.style.display = "flex"
+  autocompleteBox.style.visibility = "visible"
+  document.getElementById("bookinput").classList.add("square-bottom-corners")
 }

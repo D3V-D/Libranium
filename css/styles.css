@@ -191,6 +191,7 @@ main {
 }
 
 .main-title-logo {
-	width: clamp(300px, 80vw, 1000px);
+	max-width: 80%;
+	max-height: 45%;
 	filter: invert(100%);
 }
