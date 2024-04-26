@@ -6,6 +6,7 @@ document.getElementById("bookinput").addEventListener("keyup", function(event) {
 })
 
 async function searchBooks(query) {
+
   let url = "https://www.googleapis.com/books/v1/volumes?q=" + encodeURIComponent(query)
 
   await fetch(url)
@@ -26,8 +27,15 @@ async function searchBooks(query) {
 
 
 function fillAutocomplete(completions) {
+
   const autocompleteBox = document.getElementById("book-autocomplete")
   autocompleteBox.innerHTML = ""
+  
+  if (!completions || completions.length == 0) {
+    autocompleteBox.innerText = "No results found"
+    return
+  }
+  
   for (completion of completions) {
     const title = completion.volumeInfo.title
     const authors = completion.volumeInfo.authors
@@ -104,6 +112,10 @@ function fillAutocomplete(completions) {
       completionInfo.append(ratingInputContainer)
 
       bookList.append(completionElement)
+
+      if (autocompleteBox.children.length == 0) {
+        autocompleteBox.innerText = "No more books for this query. Try a different search term, or search the same query again if you've already added the full list."
+      }
     })
   }
 

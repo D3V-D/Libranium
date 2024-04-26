@@ -44,6 +44,7 @@ body {
 
 #already-read {
   margin-bottom: 10px;
+  border-bottom: solid 1px var(--fg-color);
 }
 
 #bookinput {
