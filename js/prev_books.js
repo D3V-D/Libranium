@@ -6,23 +6,7 @@ document.getElementById("bookinput").addEventListener("keyup", function(event) {
 })
 
 async function searchBooks(query) {
-
-  let url = "https://www.googleapis.com/books/v1/volumes?q=" + encodeURIComponent(query)
-
-  await fetch(url)
-    .then(function(response) {
-      if (!response.ok) {
-        throw new Error("Network response was not ok. " + response.statusText)
-      }
-
-      return response.json()
-    })
-    .then(function(data) {
-      fillAutocomplete(data.items)
-    })
-    .catch(function(error) {
-      console.error("Issue fetching books. " + error)
-    })
+  // get from ../books_dataset/FilteredBookData.csv
 }
 
 
