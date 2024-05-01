@@ -5,8 +5,19 @@ document.getElementById("bookinput").addEventListener("keyup", function(event) {
   }
 })
 
+async function fetchBooks() {
+  return fetch("../books_dataset/filtered_books.json")
+    .then(response => response.json())
+    .catch(error => console.error(error))
+}
+
 async function searchBooks(query) {
-  // get from ../books_dataset/FilteredBookData.csv
+  if (query.length < 2) {
+    return
+  }
+  const books = await fetchBooks()
+  const completions = books.filter(book => book.title.toLowerCase().includes(query.toLowerCase()) || book.author.toLowerCase().includes(query.toLowerCase()) || book.ISBN === query || book.publisher.toLowerCase().includes(query.toLowerCase()))
+  fillAutocomplete(completions)
 }
 
 
@@ -21,11 +32,10 @@ function fillAutocomplete(completions) {
   }
   
   for (completion of completions) {
-    const title = completion.volumeInfo.title
-    const authors = completion.volumeInfo.authors
-    const snippet = completion.searchInfo && completion.searchInfo.textSnippet
-    const image = completion.volumeInfo.imageLinks && completion.volumeInfo.imageLinks.thumbnail
-    const isbn10 = completion.volumeInfo.industryIdentifiers && completion.volumeInfo.industryIdentifiers[0].identifier
+    const title = completion.title
+    const authors = completion.author
+    const image = completion.imageUrlM || completion.imageUrlL || completion.imageUrlS || "public/homebg.png"
+    const isbn10 = completion.ISBN
 
     // first check that isbn is not already in read list
     const readList = document.getElementById("current-books-list")
@@ -52,15 +62,11 @@ function fillAutocomplete(completions) {
     completionAuthors.classList.add("book-completion-authors")
     completionAuthors.textContent = authors
 
-    const completionSnippet = document.createElement("p")
-    completionSnippet.classList.add("book-completion-snippet")
-    completionSnippet.textContent = snippet
-
     const completionButton = document.createElement("button")
     completionButton.classList.add("book-completion-button")
     completionButton.textContent = "Add"
 
-    completionInfo.append(completionTitle, completionAuthors, completionSnippet, completionButton)
+    completionInfo.append(completionTitle, completionAuthors, completionButton)
     completionElement.append(completionImage, completionInfo)
 
     autocompleteBox.append(completionElement)
