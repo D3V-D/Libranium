@@ -218,6 +218,10 @@ body {
   touch-action: manipulation;
 }
 
+.button:focus {
+  outline: 2px blue solid;
+}
+
 .button:disabled {
   pointer-events: none;
 }
@@ -244,4 +248,68 @@ body {
 .rating-input:focus {
   border: solid 1px #049772cc;
   outline: none;
+}
+
+/** output **/
+#results-overlay {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#results {
+  background-color: var(--bg-color);
+  width: clamp(200px, 80vw, 800px);
+  height: clamp(200px, 60vh, 600px);
+  border-radius: 5px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  position: relative;
+}
+
+#results-title {
+  font-size: 1.5em;
+}
+
+#results-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.recommendation {
+  width: 100%;
+  padding: 10px;
+  display: flex;
+}
+
+#close-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  font-family: monospace;
+  font-size: 1.1em;
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: 0.2s ease;
+}
+
+#close-overlay:hover {
+  background-color: #f7766ccc;
 }

@@ -1,8 +1,6 @@
 document.getElementById("bookinput").addEventListener("keyup", function(event) {
-  if (event.key == "Enter") {
-    event.preventDefault();
-    searchBooks(document.getElementById("bookinput").value)
-  }
+  event.preventDefault();
+  searchBooks(document.getElementById("bookinput").value)
 })
 
 async function fetchBooks() {
@@ -11,11 +9,15 @@ async function fetchBooks() {
     .catch(error => console.error(error))
 }
 
+let books
+document.addEventListener("DOMContentLoaded", async () => {
+  books = await fetchBooks()
+})
+
 async function searchBooks(query) {
-  if (query.length < 2) {
+  if (query.length < 3) {
     return
   }
-  const books = await fetchBooks()
   const completions = books.filter(book => book.title.toLowerCase().includes(query.toLowerCase()) || book.author.toLowerCase().includes(query.toLowerCase()) || book.ISBN === query || book.publisher.toLowerCase().includes(query.toLowerCase()))
   fillAutocomplete(completions)
 }
@@ -96,6 +98,7 @@ function fillAutocomplete(completions) {
       ratingInput.max = 10
       ratingInput.step = 1
       ratingInput.value = 0
+      ratingInput.id = isbn10 + "-rating"
 
       ratingInputContainer.append(ratingLabel, ratingInput)
 
@@ -112,3 +115,79 @@ function fillAutocomplete(completions) {
   autocompleteBox.style.visibility = "visible"
   document.getElementById("bookinput").classList.add("square-bottom-corners")
 }
+
+document.getElementById("generate-button").addEventListener("click", () => {
+  // first, make sure already read list has at least one book
+  const readList = document.getElementById("current-books-list")
+  if (readList.children.length == 1) {
+    alert("Please add at least one book to the list before generating")
+    return
+  }
+
+  const books = {}
+
+  for (book of readList.children) {
+    if (book.id === "already-read") {
+      continue // skip the header
+    }
+    // add each book and its rating to the list
+    bookRating = document.getElementById(book.dataset.isbn + "-rating").value
+    bookISBN = book.dataset.isbn
+    books[bookISBN] = bookRating
+  }
+
+  generate(books)
+})
+
+function generate(books) {
+  // generates based on isbn json
+  
+  // api url
+  let api = "http://localhost:7071/api/recBooks"
+
+  // make request
+  fetch(api, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(books)
+  }).then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+    showResults(response.json())
+  }).then(data => {
+    console.log("Server response:", data)
+  }).catch(error => {
+    console.error("Error:", error)
+  })
+}
+
+async function showResults(data) {
+  const results = await data
+  
+  for (key in results) {
+    if (key.length != 10) { // key isnt an ISBN
+      continue
+    }
+    
+    const recommendation = document.createElement("li")
+    recommendation.classList.add("recommendation")
+
+    const recommendationTitle = document.createElement("h3")
+    recommendationTitle.textContent = results[key]
+    recommendationTitle.classList.add("recommendation-title")
+
+    // can get more rec details via the key here
+
+    recommendation.append(recommendationTitle)
+
+    document.getElementById("results-list").append(recommendation)
+    document.getElementById("results-overlay").style.display = "flex"
+  }
+}
+
+document.getElementById("close-overlay").addEventListener("click", () => {
+  document.getElementById("results-overlay").style.display = "none"
+})
