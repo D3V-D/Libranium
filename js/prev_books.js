@@ -146,6 +146,7 @@ function generate(books) {
   let api = "http://localhost:7071/api/recBooks"
 
   // make request
+  console.log(JSON.stringify(books))
   fetch(api, {
     method: "POST",
     headers: {
