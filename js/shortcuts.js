@@ -6,18 +6,8 @@ const hotkeys = [
     {
         id: "Home",
         title: "Open Home",
-        hotkey: "cmd+h",
+        hotkey: "ctrl+h",
         mdIcon: "home",
-        handler: () => {
-            window.location.href = "/"
-        }
-    },
-
-    {
-        id: "Theme",
-        title: "Change Theme",
-        hotkey: "cmd+d",
-        mdIcon: "dark_mode",
         handler: () => {
             window.location.href = "/"
         }
@@ -25,13 +15,12 @@ const hotkeys = [
     {
         id: "Generate",
         title: "Generate book recommendations...",
-        hotkey: "cmd+g",
         mdIcon: "tips_and_updates",
         children: [
             {
                 id: "ByPrev",
                 title: "Generate By Previous Books",
-                hotkey: "cmd+p",
+                hotkey: "ctrl+p",
                 mdIcon: "schedule",
                 keywords: "past, already, read",
                 handler: () => {
@@ -41,7 +30,7 @@ const hotkeys = [
             {
                 id: "ByDesc",
                 title: "Generate by Description",
-                hotkey: "cmd+d",
+                hotkey: "ctrl+d",
                 mdIcon: "topic",
                 keywords: "text, description, words, custom",
                 handler: () => {

@@ -275,11 +275,14 @@ body {
   align-items: center;
   padding: 40px;
   position: relative;
+  overflow-y: scroll;
 }
 
 #results-title {
   font-size: 1.5em;
   padding: 5px;
+  display: flex;
+  align-items: center;
 }
 
 #results-list {
@@ -290,6 +293,12 @@ body {
   width: 90%;
   height: 100%;
   overflow-y: scroll;
+}
+
+#results-text {
+  padding: 0;
+  width: 90%;
+  height: 100%;
 }
 
 .recommendation {

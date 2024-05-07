@@ -32,6 +32,8 @@ async function generate(description) {
         })
     }).then(response => {
         if (!response.ok) {
+            document.getElementById("loader").style.display = "none"
+            alert("Error when generating. Try again.")
             console.error(response)
         }
         return response.json()
@@ -47,7 +49,7 @@ function displayResponse(data) {
     document.getElementById("loader").style.display = "none"
 
     document.getElementById("results-overlay").style.display = "flex"
-    document.getElementById("result-text").innerText = data.choices[0].message.content
+    document.getElementById("results-text").innerText = data.choices[0].message.content
 }
 
 

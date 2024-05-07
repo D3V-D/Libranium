@@ -30,3 +30,7 @@ textarea {
 #loader-image {
     max-width: clamp(200px, 20vw, 400px);
 }
+
+#librainian {
+    width: 3em;
+}
