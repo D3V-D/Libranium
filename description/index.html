@@ -16,8 +16,22 @@
 
   <body>
     <div class="textdiv">
-      <textarea>Description</textarea>
-      <button class="button" role="button">Generate</button>
+      <textarea placeholder="Describe your book or use for your book here..."></textarea>
+      <button id="generate-button" class="button" role="button">Generate</button>
+    </div>
+
+    <div id="results-overlay">
+      <div id="results">
+        <h2 id="results-title">Librainians response:</h2>
+        <p id="result-text">
+
+        </p>
+        <button id="close-overlay">x</button>
+      </div>
+    </div>
+
+    <div id="loader">
+      <img src="public/rings.svg" id="loader-image">
     </div>
 
     <ninja-keys />

@@ -265,7 +265,7 @@ body {
 }
 
 #results {
-  background-color: var(--bg-color);
+  background-color: #fff;
   width: clamp(200px, 80vw, 800px);
   height: clamp(200px, 60vh, 600px);
   border-radius: 5px;
@@ -279,6 +279,7 @@ body {
 
 #results-title {
   font-size: 1.5em;
+  padding: 5px;
 }
 
 #results-list {
