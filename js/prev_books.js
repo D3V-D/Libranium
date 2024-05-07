@@ -4,7 +4,7 @@ document.getElementById("bookinput").addEventListener("keyup", function(event) {
 })
 
 async function fetchBooks() {
-  return fetch("../books_dataset/filtered_books.json")
+  return fetch("../datasets/filtered_data.json")
     .then(response => response.json())
     .catch(error => console.error(error))
 }
@@ -143,7 +143,7 @@ function generate(books) {
   // generates based on isbn json
   
   // api url
-  let api = "http://localhost:7071/api/recBooks"
+  let api = "https://libranium-api.azurewebsites.net/api/recommend"
 
   // make request
   console.log(JSON.stringify(books))
@@ -191,4 +191,5 @@ async function showResults(data) {
 
 document.getElementById("close-overlay").addEventListener("click", () => {
   document.getElementById("results-overlay").style.display = "none"
+  document.getElementById("results-list").innerHTML = ""
 })
