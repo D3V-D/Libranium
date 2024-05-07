@@ -1,0 +1,14 @@
+{
+  "name": "libranium",
+  "version": "1.0.0",
+  "description": "Libranium",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "deven",
+  "license": "MIT",
+  "dependencies": {
+    "node-fetch": "^3.3.2"
+  }
+}
