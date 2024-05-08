@@ -124,6 +124,8 @@ document.getElementById("generate-button").addEventListener("click", () => {
     return
   }
 
+  document.getElementById("loader").style.display = "flex"
+
   const books = {}
 
   for (book of readList.children) {
@@ -183,7 +185,7 @@ async function showResults(data) {
     // can get more rec details via the key here
 
     recommendation.append(recommendationTitle)
-
+    document.getElementById("loader").style.display = "none"
     document.getElementById("results-list").append(recommendation)
     document.getElementById("results-overlay").style.display = "flex"
   }

@@ -19,7 +19,7 @@ export const handler = async function (event, context) {
                 }
             ],
             "temperature": 0.85,
-            "max_tokens": 512
+            "max_tokens": 256
         })
 
         const headers = {
