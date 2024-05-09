@@ -4,10 +4,13 @@
 
 ## FEATURES
 
-- **Recomendation by Book Description** Leverages a KNN model to recommend users books based off of books they have enjoyed in the past. The dataset is trained off of a Kaggle Dataset 📈
-- **Recomendation by Past Read Books**
-- **Recomendation by Topics**
-- **Recomendation by Lesson Plan**
+- **Recomendation by Book Description**: Use an LLM via an Azure endpoint to generate recommendations based on text inputs 📚
+- **Recomendation by Past Read Books**: Leverages a KNN model to recommend users books based off of books they have enjoyed in the past. The model is trained off of a Kaggle Dataset 📈
 
-## TOOLS USED
 
+## TOOLS USED 🛠️
+- Azure Web App Deployment for KNN Flask API deployment
+- Asure AI studio to deploy LLM for inference
+- Netlify for site hosting
+- GitHub to store files and keep open-source
+- Python, Javascript, HTML/CSS
